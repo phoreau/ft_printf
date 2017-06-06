@@ -30,13 +30,6 @@ static int	get_line(char **line, char **saved)
 	return (0);
 }
 
-static int	get_line_extra_after_last_new_line(char **line, char **saved)
-{
-	*line = ft_strdup(*saved);
-	ft_strdel(saved);
-	return (1);
-}
-
 int			get_next_line(const int fd, char **line)
 {
 	int			ret_of_read;
@@ -46,7 +39,7 @@ int			get_next_line(const int fd, char **line)
 
 	if (!saved)
 		saved = ft_strnew(BUFF_SIZE);
-	if (!line || fd < 0 || read(fd, buf, 0) < 0 || BUFF_SIZE <= 0)
+	if (!line || fd < 0 || read(fd, buf, 0) < 0)
 		return (-1);
 	if (get_line(line, &saved))
 		return (1);
@@ -62,6 +55,10 @@ int			get_next_line(const int fd, char **line)
 			return (1);
 	}
 	if (*saved)
-		return (get_line_extra_after_last_new_line(line, &saved));
+	{
+		*line = ft_strdup(saved);
+		ft_strdel(&saved);
+		return (1);
+	}
 	return (0);
 }

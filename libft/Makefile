@@ -78,7 +78,7 @@ SRC=ft_atoi.c \
 	ft_lstdelone.c \
 	ft_lstdel.c \
 	ft_lstadd.c \
-	ft_lstaddtotheend.c \
+	ft_lst_add_to_the_end.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
 	get_next_line.c \
