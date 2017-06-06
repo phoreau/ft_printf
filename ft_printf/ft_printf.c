@@ -15,6 +15,7 @@
 int		ft_printf(char *format, ...)
 {
 	va_list		something;
+	va_list		something2;
 	char		*str;
 	int			index;
 	int			decimal;
@@ -25,6 +26,7 @@ int		ft_printf(char *format, ...)
 	index = 0;
 	str = format;
 	va_start(something, format);
+	va_copy(something2, something);
 	while (str[index] != '\0')
 	{
 		if (str[index] == '\n')
@@ -49,40 +51,12 @@ int		ft_printf(char *format, ...)
 		// 	longg = va_arg(something, long);
 		// 	ft_putnbr(longg);
 		// }
+		ft_putchar(str[index]);
 		index++;
 	}
 	va_end(something);
+	va_end(something2);
 	return (0);
 }
 
-
-// void foo(char *fmt, ...)
-// {
-//    va_list ap, ap2;
-//    int d;
-//    char c, *s;
-
-//    va_start(ap, fmt);
-//    va_copy(ap2, ap);
-//    while (*fmt)
-//            switch(*fmt++) {
-//            case 's':                       /* string */
-//                    s = va_arg(ap, char *);
-//                    printf("string %s\n", s);
-//                    break;
-//            case 'd':                       /* int */
-//                    d = va_arg(ap, int);
-//                    printf("int %d\n", d);
-//                    break;
-//            case 'c':                       /* char */
-//                    /* Note: char is promoted to int. */
-//                    c = va_arg(ap, int);
-//                    printf("char %c\n", c);
-//                    break;
-//            }
-//    va_end(ap);
-//    ...
-//    /* use ap2 to iterate over the arguments again */
-//    ...
-//        va_end(ap2);
-// }
+//creer une fonction pour les 
