@@ -13,37 +13,62 @@
 NAME=libftprintf.a
 
 CC=gcc
-
 CFLAGS=-Wall -Wextra -Werror
+LIBFT=../libft/libft.a
+DEBUGFLAGS=-fsanitize=address -g -o ft_printf_debug
+LEAKCHECK=-g -o ft_printf_leakcheck
 
-RM=/bin/rm -f
+SRCS=ft_printf.c \
+	print_character.c \
+	print_decimal.c \
+	print_modulo.c \
+	main.c \
 
-LDFLAGS=-L.
+OBJDIR = ./obj/
+SRCDIR = ./srcs/
+LIBDIR = ./../libft/
+INCDIR = ./includes/
 
-LDLIBS=-lft
+SRC = $(addprefix $(SRCDIR),$(SRCS))
+OBJ = $(addprefix $(OBJDIR),$(SRCS:.c=.o))
 
-SRC=ft_printf.c \
-	ft_printf_character.c \
+all:$(LIBFT) $(NAME)
 
-OBJ=$(SRC:.c=.o)
+$(OBJ): $(SRC)
+	@$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
+	@mkdir -p $(OBJDIR)
+	@mv $(SRCS:.c=.o) $(OBJDIR)
 
-default: all
+$(NAME): $(LIBFT) $(OBJ)
+	@echo "<< Compiling libftprintf... >>"
+	@ar rc $(NAME) $(OBJ) $(LIBFT)
+	@echo "<< Made libftprintf.a! >>"
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-all: $(NAME) make -C ./ft_printf/libft
+$(LIBFT):
+	make -C $(LIBDIR) all
 
 clean:
-	$(RM) $(OBJ)
+	@echo "<< Cleaning libftprintf >>"
+	@rm -rf $(OBJDIR)
+	@rm -rf ft_printf_debug
+	@rm -rf ft_printf_debug.dSYM
+	@rm -rf ft_printf_leakcheck
+	@rm -rf ft_printf_leakcheck.dSYM
+	@make -C $(LIBDIR) clean
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "<< Fclean libftprintf >>"
+	@rm -rf $(NAME)
+	@make -C $(LIBDIR) fclean
 
 re: fclean all
 
-.PHONY: clean fclean
+debug : $(LIBFT)
+	@echo "<< Compiling libftprintf with debugging options >>"
+	$(CC) $(SRC) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS)
+
+leakcheck : $(LIBFT)
+	@echo "<< Compiling libftprintf with valgrind options >>"
+	$(CC) $(SRC) $(LIBFT) -I$(INCDIR) $(LEAKCHECK)
+
+.PHONY: all, clean, fclean, re
