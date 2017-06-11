@@ -15,13 +15,24 @@
 # include "libft.h"
 # include <stdarg.h>
 
-typedef struct 		s_value$
+typedef struct		s_format
 {
-	int		nb_chars_printed;
-	int		location;
-	char	*flags;
-	char	*specifiers;
-	char	*format;
+	int				nb_chars_printed;
+	char			flags;
+	char			width;
+	char			precision;
+	char			length;
+	char			specifier;
+
+}					t_format;
+
+typedef struct 		s_value
+{
+	int				nb_chars_printed;
+	int				location;
+	char			*flags;
+	char			*specifiers;
+	char			*format;
 }					t_value;
 
 int		ft_printf(char *format, ...);
