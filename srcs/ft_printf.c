@@ -12,51 +12,61 @@
 
 #include "ft_printf.h"
 
+// int		parse_format(char *format, va_list ap)
+// {
+// 	char		*str;
+// 	int			index;
+// 	int			decimal;
+// 	int			chracter; //oddly because we're printing ascii numbers
+// 	// long		longg;
+// 	char		*string;
+// 	while (str[index] != '\0')
+// 	{
+// 		if (str[index] == '\n')
+// 			ft_putchar(str[index]);
+// 		if (str[index] == 'c')
+// 		{
+// 			chracter = va_arg(ap, int);
+// 			ft_putchar(chracter);
+// 		}
+// 		if (str[index] == 's')
+// 		{
+// 			string = va_arg(ap, char *);
+// 			ft_putstr(string);
+// 		}
+// 		if (str[index] == 'd')
+// 		{
+// 			decimal = va_arg(ap, int);
+// 			ft_putnbr(decimal);
+// 		}
+// 		// if (str[index] == 'ld')
+// 		// {
+// 		// 	longg = va_arg(ap, long);
+// 		// 	ft_putnbr(longg);
+// 		// }
+// 		ft_putchar(str[index]);
+// 		index++;
+// 	}
+// }
+
 int		ft_printf(char *format, ...)
 {
-	va_list		something;
-	va_list		something2;
-	char		*str;
-	int			index;
-	int			decimal;
-	int			chracter; //oddly because we're printing ascii numbers
-	// long		longg;
-	char		*string;
+	va_list		arguments;
+	t_value		ret;
 
-	index = 0;
-	str = format;
-	va_start(something, format);
-	va_copy(something2, something);
-	while (str[index] != '\0')
+	if (!format)
 	{
-		if (str[index] == '\n')
-			ft_putchar(str[index]);
-		if (str[index] == 'c')
-		{
-			chracter = va_arg(something, int);
-			ft_putchar(chracter);
-		}
-		if (str[index] == 's')
-		{
-			string = va_arg(something, char *);
-			ft_putstr(string);
-		}
-		if (str[index] == 'd')
-		{
-			decimal = va_arg(something, int);
-			ft_putnbr(decimal);
-		}
-		// if (str[index] == 'ld')
-		// {
-		// 	longg = va_arg(something, long);
-		// 	ft_putnbr(longg);
-		// }
-		ft_putchar(str[index]);
-		index++;
+		ft_putendl_fd("ft_printf: format string must be valid", 2);
+		exit(1);
 	}
-	va_end(something);
-	va_end(something2);
-	return (0);
+	//not sure, in case we need to allocate memory for the struct
+	// ret = malloc(sizeof(t_value));
+	va_start(arguments, format);
+	//ret.nb_chars_printed = handle_format(format, arguments);
+	va_end(arguments);
+	return (ret.nb_chars_printed);
 }
 
-//creer une fonction pour les 
+//create a function to handle the format
+//use function pointers so the code will be better
+//check for the flags first
