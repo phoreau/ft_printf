@@ -49,6 +49,11 @@
 // 	}
 // }
 
+int		parse_flags(t_format *format, va_list arguments)
+{
+	
+}
+
 int		ft_printf(char *format, ...)
 {
 	va_list		arguments;
