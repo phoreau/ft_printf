@@ -42,7 +42,7 @@ int		ft_printf(char *format, ...);
 
 
 
-if (CHECK_FLAG(format[i]))
-{
-
-}
+// if (CHECK_FLAG(format[i]))
+// {
+//
+// }
