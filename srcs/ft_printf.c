@@ -35,6 +35,6 @@ int		ft_printf(char *format, ...)
 	return (ret.nb_chars_printed);
 }
 
-//create a function to handle the format
-//use function pointers so the code will be better
-//check for the flags first
+// create a function to handle the format
+// use function pointers so the code will be better
+// check for the flags first
