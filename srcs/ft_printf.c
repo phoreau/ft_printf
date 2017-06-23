@@ -12,27 +12,22 @@
 
 #include "ft_printf.h"
 
-int		handle_flags(t_format *format, va_list arguments)
-{
-
-}
-
-int		ft_printf(char *format, ...)
+int		ft_printf(char *format_str, ...)
 {
 	va_list		arguments;
-	t_value		ret;
+	t_format	format;
 
-	if (!format)
+	if (!format_str)
 	{
 		ft_putendl_fd("ft_printf: format string must be valid", 2);
 		exit(1);
 	}
-	//not sure, in case we need to allocate memory for the struct
-	// ret = malloc(sizeof(t_value));
-	va_start(arguments, format);
-	//ret.nb_chars_printed = handle_format(format, arguments);
+	// ft_bzero? not sure, in case we need to allocate memory for the struct
+	//format.str = format_str; ?
+	va_start(arguments, format_str);
+	//handle_format(&format, arguments);
 	va_end(arguments);
-	return (ret.nb_chars_printed);
+	return (format.chars_written);
 }
 
 // create a function to handle the format
