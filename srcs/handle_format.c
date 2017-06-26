@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   handle_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phoreau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:56:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/09 14:56:35 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/25 02:03:56 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 // int		parse_format(char *format, va_list ap)
 // {
@@ -48,3 +48,27 @@
 // 		index++;
 // 	}
 // }
+
+// static int		do_conversion(char *format_str, ...)
+// {
+
+// }
+
+void	handle_format(t_format *format, va_list arguments)
+{
+	int		index;
+	char	*format_str;
+
+	index = 0;
+	while (format_str[index] != '\0')
+	{
+		if (format_str[index] == '%')
+		{
+			// do_conversion();
+			ft_putendl("do conversion here motherfucker");
+		}
+		else
+			ft_putstr(format_str);
+		index++;
+	}
+}

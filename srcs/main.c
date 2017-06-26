@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phoreau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 13:57:59 by phoreau           #+#    #+#             */
-/*   Updated: 2017/05/28 13:58:07 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/25 19:27:52 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 #include <locale.h>
@@ -38,29 +38,29 @@ int		main(void)
 	// ft_printf(" | retour %d\n", ft_printf("Barong%s devient %ls%d", "21", L"Barong¥", 42));
 	// printf(" | retour %d\n", printf("Barong%s devient %ls%d", "21", L"Barong¥", 42));
 
-	ft_printf("ft_printf: %c\n", 'Y');
-	printf("printf: %c\n", 'Y');
-	printf("---------------------------\n");
+	// ft_printf("ft_printf: %c\n", 'Y');
+	// printf("printf: %c\n", 'Y');
+	// printf("---------------------------\n");
 
-	ft_printf("ft_printf: %s\n", "Maybe I'm a genius");
-	printf("printf: %s\n", "Maybe I'm a genius");
-	printf("---------------------------\n");
+	// ft_printf("ft_printf: %s\n", "Maybe I'm a genius");
+	// printf("printf: %s\n", "Maybe I'm a genius");
+	// printf("---------------------------\n");
 
-	ft_printf("ft_printf: %d\n", -2147483649);
-	printf("%ld\n", -2147483649);
-	printf("---------------------------\n");
+	// ft_printf("ft_printf: %d\n", -2147483649);
+	// printf("%ld\n", -2147483649);
+	// printf("---------------------------\n");
 
-	ft_printf("%s%s\n", "Pema ", "Horeau");
-	printf("printf: %s%s\n", "Pema ", "Horeau");
-	printf("---------------------------\n");
+	// ft_printf("%s%s\n", "Pema ", "Horeau");
+	// printf("printf: %s%s\n", "Pema ", "Horeau");
+	// printf("---------------------------\n");
 
 	ft_printf("ft_printf: LOL\n");
-	printf("printf: LOL\n");
-	printf("---------------------------\n");
+	// printf("printf: LOL\n");
+	// printf("---------------------------\n");
 
-	ft_printf("ft_printf: %s\n", "LOL");
-	printf("printf: %s\n","LOL");
-	printf("---------------------------\n");
+	// ft_printf("ft_printf: %s\n", "LOL");
+	// printf("printf: %s\n","LOL");
+	// printf("---------------------------\n");
 
 	// ft_printf("%d\n", MB_CUR_MAX);
 	// printf("%d\n", MB_CUR_MAX);
@@ -101,4 +101,5 @@ int		main(void)
 	// //Warning
 	// ft_printf("|retour : %d|\n", ft_printf("{%ls}", "\xF0\x9D\x84\x9E"));
 	// printf("|retour : %d|\n", printf("{%ls}", "\xF0\x9D\x84\x9E"));
+	return (0);
 }
