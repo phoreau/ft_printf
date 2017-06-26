@@ -19,7 +19,7 @@ DEBUGFLAGS=-fsanitize=address -g -o ft_printf_debug
 LEAKCHECK=-g -o ft_printf_leakcheck
 
 SRCS=ft_printf.c \
-	main.c \
+	handle_format.c \
 
 OBJDIR = ./obj/
 SRCDIR = ./srcs/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phoreau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 21:35:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/05/28 21:35:35 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/26 15:29:13 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <stdarg.h>
+# include <stdio.h> //REMOVE AT THE END !!!!
 
 # define CHECK_FLAG(x) x == '-' || x == '+' || x == ' ' || x == '#' || x == '0'
 # define LENGTH_SIGNAL(x) x == 'h' || x == 'l' || x == 'j' || x == 'z'
@@ -23,9 +24,9 @@
 
 typedef struct		s_format
 {
-	const char		*str;
-	size_t			index;
-	size_t			chars_written;
+	const char		*string;
+	size_t			location;
+	size_t			written;
 }					t_format;
 
 typedef struct		s_flags
@@ -46,11 +47,32 @@ typedef struct		s_conversion
 	char			specifier;
 }					t_conversion;
 
-int					ft_printf(char *format, ...);
+int					ft_printf(char *format_str, ...);
+void				handle_format(char *format_str, va_list arguments);
 
 #endif
 
 // if (CHECK_FLAG(format[i]))
 // {
 //
+// // }
+
+// void				handle_format(t_format *format, va_list arguments)
+// {
+// 	char			current;
+
+// 	while ((current = *get_current(format)))
+// 	{
+// 		if (current == '%')
+// 		{
+// 			format->location++;
+// 			handle_conversion(format, arguments);
+// 		}
+// 		else
+// 		{
+// 			ft_putchar(current);
+// 			format->written++;
+// 			format->location++;
+// 		}
+// 	}
 // }
