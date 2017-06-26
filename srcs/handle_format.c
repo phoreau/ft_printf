@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:56:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/25 02:03:56 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/26 15:44:56 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,27 @@
 
 // }
 
-void	handle_format(t_format *format, va_list arguments)
-{
-	int		index;
-	char	*format_str;
 
-	index = 0;
-	while (format_str[index] != '\0')
+
+void	handle_format(char *format_str, va_list arguments)
+{
+	const char 	*string;
+
+	while (*format_str)
 	{
-		if (format_str[index] == '%')
+		if (*format_str == '%')
 		{
-			// do_conversion();
-			ft_putendl("do conversion here motherfucker");
+			format_str++;
+			// 'C' is for white char
+			//keeps it from segfaulting
+			if (*format_str == 'c' || *format_str == 'C') 
+				ft_putchar(va_arg(arguments, int));
+			if (*format_str == 's') 
+				ft_putstr(va_arg(arguments, char *));
+			// do the conversion here
 		}
 		else
-			ft_putstr(format_str);
-		index++;
+			ft_putchar(*format_str);
+		format_str++;
 	}
 }

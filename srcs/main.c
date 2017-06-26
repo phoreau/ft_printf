@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 13:57:59 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/25 19:27:52 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/26 16:10:20 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int		main(void)
 	// printf("---------------------------\n");
 
 	ft_printf("ft_printf: LOL\n");
+	ft_printf("ft_printf: %c\n", 'o');
+	ft_printf("ft_printf: %s", "motherfucker\n");
+
 	// printf("printf: LOL\n");
 	// printf("---------------------------\n");
 
