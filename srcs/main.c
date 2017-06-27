@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 13:57:59 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/27 00:26:53 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/27 16:34:34 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int		main(void)
 {
+	printf("========================================================\n");
 	// Warning.
 	// ft_printf("%d\n", ft_printf("%%   %", "test"));
 	// printf("%d\n", printf("%%   %", "test"));
@@ -43,19 +44,30 @@ int		main(void)
 	// ft_printf("ft_printf: %d\n", -2147483649);
 	// printf("%ld\n", -2147483649);
 
-	ft_printf("ft_printf: LOL\n");
-	ft_printf("ft_printf: %c\n", 'o');
-	ft_printf("ft_printf: %s", "motherfucker\n");
+	ft_printf("ft_printf: %%-5d -42 == |%-5d|\n", -42);
+	printf("printf: %%-5d -42 == |%-5d|\n", -42);
+	printf("========================================================\n");
 
-	// printf("printf: LOL\n");
+	ft_printf("ft_printf: LOL\n");
+	printf("printf: LOL\n");
+	printf("========================================================\n");
+	ft_printf("ft_printf: %c\n", 'o');
+	printf("printf: %c\n", 'o');
+	printf("========================================================\n");
+	ft_printf("ft_printf: %s", "motherfucker\n");
+	printf("printf: %s", "motherfucker\n");
+	printf("========================================================\n");
+
+	
 
 	// ft_printf("ft_printf: %s\n", "LOL");
 	// printf("printf: %s\n","LOL");
 
 	// int a = 156;
 
-	// ft_printf("|retour : %d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
-	// printf("|retour : %d|\n", printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
+	ft_printf("|ft_printf : %d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
+	printf("|printf : %d|\n", printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
+	printf("========================================================\n");
 
 	// ft_printf("|retour : %d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E"));
 	// printf("|retour : %d|\n", printf("{%ls}", L"\xF0\x9D\x84\x9E"));
@@ -69,13 +81,11 @@ int		main(void)
 	// ft_printf("|retour : %d|\n", ft_printf("{%c}", -1));
 	// printf("|retour : %d|\n", printf("{%c}", -1));
 
-
 	// ft_printf("%d\n", ft_printf("{%-30S}", L"ææäåç。"));
 	// printf("%d\n", printf("{%-30S}", L"ææäåç。"));
 
 	// ft_printf("%d\n", ft_printf("{%-30S}", L"ææäåç。"));
 	// printf("%d\n", printf("{%-30S}", L"ææäåç。"));
-
 
 	// ft_printf("|retour : %d|\n", ft_printf("{%lc}", 63743));
 	// printf("|retour : %d|\n", printf("{%lc}", 63743));

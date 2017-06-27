@@ -14,22 +14,23 @@ NAME=libftprintf.a
 
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-LIBFT=../libft/libft.a
+LIBFT=./libft/libft.a
 DEBUGFLAGS=-fsanitize=address -g -o ft_printf_debug
 LEAKCHECK=-g -o ft_printf_leakcheck
 
 SRCS=ft_printf.c \
 	handle_format.c \
+	main.c \
 
 OBJDIR = ./obj/
 SRCDIR = ./srcs/
-LIBDIR = ./../libft/
+LIBDIR = ./libft/
 INCDIR = ./includes/
 
 SRC = $(addprefix $(SRCDIR),$(SRCS))
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.c=.o))
 
-all:$(LIBFT) $(NAME)
+all: $(NAME)
 
 $(OBJ): $(SRC)
 	@$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
@@ -42,7 +43,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	@echo "<< Made libftprintf.a! >>"
 
 $(LIBFT):
-	make -C $(LIBDIR) all
+	make -C $(LIBDIR)
 
 clean:
 	@echo "<< Cleaning libftprintf >>"
@@ -55,7 +56,7 @@ clean:
 
 fclean: clean
 	@echo "<< Fclean libftprintf >>"
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) *.o
 	@make -C $(LIBDIR) fclean
 
 re: fclean all
