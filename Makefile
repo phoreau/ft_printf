@@ -32,15 +32,15 @@ OBJ = $(addprefix $(OBJDIR),$(SRCS:.c=.o))
 
 all: $(NAME)
 
+$(NAME): $(LIBFT) $(OBJ)
+	@echo "<< Compiling libftprintf... >>"
+	@ar rc $(NAME) $(OBJ) ./libft/*.o
+	@echo "<< Made libftprintf.a! >>"
+
 $(OBJ): $(SRC)
 	@$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
 	@mkdir -p $(OBJDIR)
 	@mv $(SRCS:.c=.o) $(OBJDIR)
-
-$(NAME): $(LIBFT) $(OBJ)
-	@echo "<< Compiling libftprintf... >>"
-	@ar rc $(NAME) $(OBJ) $(LIBFT)
-	@echo "<< Made libftprintf.a! >>"
 
 $(LIBFT):
 	make -C $(LIBDIR)
