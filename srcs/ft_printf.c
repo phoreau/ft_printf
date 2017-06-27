@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 14:05:45 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/26 15:28:00 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/27 00:31:38 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		ft_printf(char *format_str, ...)
 {
 	va_list		arguments;
-	// t_format	format;
 
 	if (!format_str)
 	{
@@ -30,6 +29,4 @@ int		ft_printf(char *format_str, ...)
 	return (0);
 }
 
-// create a function to handle the format
 // use function pointers so the code will be better
-// check for the flags first

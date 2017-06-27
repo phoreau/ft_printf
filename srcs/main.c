@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 13:57:59 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/26 16:10:20 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/06/27 00:26:53 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 int		main(void)
 {
-	//setlocale(LC_ALL, "");
 	// Warning.
 	// ft_printf("%d\n", ft_printf("%%   %", "test"));
 	// printf("%d\n", printf("%%   %", "test"));
@@ -40,37 +39,20 @@ int		main(void)
 
 	// ft_printf("ft_printf: %c\n", 'Y');
 	// printf("printf: %c\n", 'Y');
-	// printf("---------------------------\n");
-
-	// ft_printf("ft_printf: %s\n", "Maybe I'm a genius");
-	// printf("printf: %s\n", "Maybe I'm a genius");
-	// printf("---------------------------\n");
 
 	// ft_printf("ft_printf: %d\n", -2147483649);
 	// printf("%ld\n", -2147483649);
-	// printf("---------------------------\n");
-
-	// ft_printf("%s%s\n", "Pema ", "Horeau");
-	// printf("printf: %s%s\n", "Pema ", "Horeau");
-	// printf("---------------------------\n");
 
 	ft_printf("ft_printf: LOL\n");
 	ft_printf("ft_printf: %c\n", 'o');
 	ft_printf("ft_printf: %s", "motherfucker\n");
 
 	// printf("printf: LOL\n");
-	// printf("---------------------------\n");
 
 	// ft_printf("ft_printf: %s\n", "LOL");
 	// printf("printf: %s\n","LOL");
-	// printf("---------------------------\n");
-
-	// ft_printf("%d\n", MB_CUR_MAX);
-	// printf("%d\n", MB_CUR_MAX);
 
 	// int a = 156;
-
-
 
 	// ft_printf("|retour : %d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
 	// printf("|retour : %d|\n", printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
