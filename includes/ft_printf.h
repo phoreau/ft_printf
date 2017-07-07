@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 21:35:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/27 01:03:12 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/03 22:33:36 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,25 @@ typedef struct		s_format
 
 typedef struct		s_value
 {
+	int				wild_prec;
+	int				wild_width;
+	size_t			str_len;
+	int				r;
+	int				flag;
+	int				prec_case;
+	int				no_spec;
+	void			(*print_func)(const char*);
+	char			*mid_str;
+	char			*final_string;
+	t_format		*format;
+
+
 	int				hash;
 	int				fal;
 	int				show_sign;
 	int				left_justify;
 	int				pad_zeros;
-	t_format		format;
+	t_format		*format;
 }					t_value;
 
 int					ft_printf(char *format_str, ...);
@@ -46,7 +59,6 @@ void				handle_format(char *format_str, va_list arguments);
 
 #endif
 
-// if (CHECK_FLAG(format[i]))
-// {
-//
-// // }
+// fucntions pointers 
+// specifier are index
+// when you recieve s as specifier, you use it as 

@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 14:05:45 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/27 00:31:38 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/03 22:26:16 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ int		ft_printf(char *format_str, ...)
 }
 
 // use function pointers so the code will be better
+// %[flags][width][.precision][length]specifier
