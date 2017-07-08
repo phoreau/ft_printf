@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:56:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/07 22:24:25 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/08 16:08:13 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,13 @@ void	handle_flags_space(char *format_str, t_value *flags)
 	index = 1;
 	while (format_str[index])
 	{
-		if (format_str[index] == ' ')
+		if (format_str[index] == ' ' && format_str[index + 1] == 'd')
 		{
 			// while (CHECK_FLAG(format_str[index]))
-			while (format_str[index] == ' ')
-			{
 				ft_putchar(' ');
 				
 				flags->space_or_sign++;
 				index++;
-			}
-			break ;
 		}
 		index++;
 	}

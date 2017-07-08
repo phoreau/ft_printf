@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 14:05:45 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/07 20:47:47 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/08 16:42:43 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,34 @@
 int		start_printing(int fd, char *format_str, va_list arguments)
 {
 	int			result;
+	int			i;
+	int			space;
 	t_value		values;
 
 	result = 0;
+	i = 0;
 	values.fd = fd;
-	while (*format_str)
+	while (format_str[i])
 	{
-		if (*format_str == '%')
+		if (format_str[i] == '%')
 		{
-			format_str++;
+			i++;
+			space = ' ';
+			if (format_str[i] == ' ' && format_str[i + 1] == 'd')
+			{
+				space++;
+				ft_putchar(format_str[i]);
+			}
 			handle_specifier(*format_str, arguments);
 		}
-		else if (*format_str)
+		else if (format_str[i])
 		{
-			ft_putchar(*format_str);
+			ft_putchar(format_str[i]);
 			result++;
 		}
-		if (*format_str == '\0')
+		if (format_str[i] == '\0')
 			break ;
-		format_str++;
+		i++;
 	}
 	return (result);
 }
