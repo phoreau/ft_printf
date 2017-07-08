@@ -6,34 +6,50 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:56:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/03 22:29:39 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/07 22:24:25 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// void	handle_specifier(char *format_str, va_list arguments)
-// {
-// 	if (*format_str == 'c') 
-// 		ft_putchar(va_arg(arguments, int));
-// 	if (*format_str == 's') 
-// 		ft_putstr(va_arg(arguments, char *));
-// 	if (*format_str == 'd') 
-// 		ft_putnbr(va_arg(arguments, int));
-// }
+void	handle_specifier(char specifier, va_list arguments)
+{
+	int		d;
 
-// void	handle_format(char *format_str, va_list arguments)
-// {
-// 	while (*format_str)
-// 	{
-// 		if (*format_str == '%')
-// 		{
-// 			format_str++;
-// 			handle_specifier(format_str, arguments);
-// 		}
-// 		else
-// 			ft_putchar(*format_str);
-// 		format_str++;
-// 	}
-// }
+	if (specifier == 'c')
+	{
+		d = va_arg(arguments, int);
+		ft_putchar(d);
+	}
+	if (specifier == 's') 
+		ft_putstr(va_arg(arguments, char *));
+	if (specifier == 'd' || specifier == 'i') 
+		ft_putnbr(va_arg(arguments, int));
+}
 
+void	handle_flags_space(char *format_str, t_value *flags)
+{
+	int		index;
+
+	index = 1;
+	while (format_str[index])
+	{
+		if (format_str[index] == ' ')
+		{
+			// while (CHECK_FLAG(format_str[index]))
+			while (format_str[index] == ' ')
+			{
+				ft_putchar(' ');
+				
+				flags->space_or_sign++;
+				index++;
+			}
+			break ;
+		}
+		index++;
+	}
+}
+
+
+// find the flags
+// then activate what we want each of them to do
