@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 13:57:59 by phoreau           #+#    #+#             */
-/*   Updated: 2017/06/27 16:34:34 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/07 20:55:30 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,24 @@ int		main(void)
 	printf("printf: %%-5d -42 == |%-5d|\n", -42);
 	printf("========================================================\n");
 
-	ft_printf("ft_printf: LOL\n");
-	printf("printf: LOL\n");
+	ft_printf("ft_printf: |% d|\n", 42);
+	printf("printf: |% d|\n", 42);
 	printf("========================================================\n");
-	ft_printf("ft_printf: %c\n", 'o');
-	printf("printf: %c\n", 'o');
+
+	ft_printf("ft_printf: |%d|\n", 42);
+	printf("printf: |%d|\n", 42);
 	printf("========================================================\n");
-	ft_printf("ft_printf: %s", "motherfucker\n");
-	printf("printf: %s", "motherfucker\n");
+
+	ft_printf("ft_printf: |LOL|\n");
+	printf("printf: |LOL|\n");
+	printf("========================================================\n");
+
+	ft_printf("ft_printf: |%c|\n", 'o');
+	printf("printf: |%c|\n", 'o');
+	printf("========================================================\n");
+
+	ft_printf("ft_printf: |%s|", "motherfucker\n");
+	printf("printf: |%s|", "motherfucker\n");
 	printf("========================================================\n");
 
 	

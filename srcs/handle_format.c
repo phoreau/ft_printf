@@ -6,99 +6,50 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:56:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/03 22:29:39 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/07 22:24:25 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// void	handle_specifier(char *format_str, va_list arguments)
-// {
-// 	if (*format_str == 'c') 
-// 		ft_putchar(va_arg(arguments, int));
-// 	if (*format_str == 's') 
-// 		ft_putstr(va_arg(arguments, char *));
-// 	if (*format_str == 'd') 
-// 		ft_putnbr(va_arg(arguments, int));
-// }
-
-// void	handle_format(char *format_str, va_list arguments)
-// {
-// 	while (*format_str)
-// 	{
-// 		if (*format_str == '%')
-// 		{
-// 			format_str++;
-// 			handle_specifier(format_str, arguments);
-// 		}
-// 		else
-// 			ft_putchar(*format_str);
-// 		format_str++;
-// 	}
-// }
-
-void	handle_precision(char *format_str, t_value *result)
+void	handle_specifier(char specifier, va_list arguments)
 {
-	char	*precision;
+	int		d;
 
-
-	free(precision);
-}
-
-void	handle_specifier(char *format_str, t_value *result)
-{
-	int		index;
-	int		jdex;
-
-	index = 0;
-	while (format[index] != '\0')
+	if (specifier == 'c')
 	{
-		jdex = 0;
-		while (result->specifier[index])
-		{
-			if (format[index] == result->specifier[jdex])
-				result->format->spec = format[index];
-			jdex++;
-		}
-		index++;
+		d = va_arg(arguments, int);
+		ft_putchar(d);
 	}
-	handle_precision(format, arguments);
+	if (specifier == 's') 
+		ft_putstr(va_arg(arguments, char *));
+	if (specifier == 'd' || specifier == 'i') 
+		ft_putnbr(va_arg(arguments, int));
 }
 
-void	handle_length(char *format_str, t_value *result)
-{
-	handle_specifier(format, arguments);
-}
-
-void	handle_width(char *format_str, t_value *result)
+void	handle_flags_space(char *format_str, t_value *flags)
 {
 	int		index;
 
-	index = 0;
-	handle_length(format, arguments);
-}
-
-void	handle_flags(char *format_str, t_value *result, va_list arguments)
-{
-	int		index;
-	int		jdex;
-
-	index = 0;
-	jdex = 0;
-	while (format_str[index] != '\0')
+	index = 1;
+	while (format_str[index])
 	{
-		//break if number
-		if (CHECK_FLAG(format[index]))
+		if (format_str[index] == ' ')
 		{
-			while (CHECK_FLAG(format[index]))
+			// while (CHECK_FLAG(format_str[index]))
+			while (format_str[index] == ' ')
 			{
-				result->format->flags[jdex] = format_str[index];
-				jdex++;
+				ft_putchar(' ');
+				
+				flags->space_or_sign++;
 				index++;
 			}
 			break ;
 		}
 		index++;
 	}
-	handle_width(format, arguments);
 }
+
+
+// find the flags
+// then activate what we want each of them to do
