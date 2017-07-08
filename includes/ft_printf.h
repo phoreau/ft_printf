@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 21:35:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/03 22:33:36 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/07 20:46:38 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_format
 
 typedef struct		s_value
 {
+	int				fd;
 	int				wild_prec;
 	int				wild_width;
 	size_t			str_len;
@@ -43,22 +44,36 @@ typedef struct		s_value
 	void			(*print_func)(const char*);
 	char			*mid_str;
 	char			*final_string;
-	t_format		*format;
-
-
-	int				hash;
-	int				fal;
-	int				show_sign;
+	// Flags
 	int				left_justify;
+	int				show_sign;
+	int				space_or_sign;
 	int				pad_zeros;
+	int				hashtag;
+	// Struct
 	t_format		*format;
 }					t_value;
 
 int					ft_printf(char *format_str, ...);
 void				handle_format(char *format_str, va_list arguments);
+void				handle_specifier(char specifier, va_list arguments);
+void				handle_flags_space(char *format_str, t_value *result);
 
 #endif
 
 // fucntions pointers 
 // specifier are index
 // when you recieve s as specifier, you use it as 
+
+
+// -	The output is left justified in its field, not right justified (the default).
+
+// +	Signed numbers will always be printed with a leading sign (+ or -).
+
+// space	Positive numbers are preceded by a space (negative numbers by a - sign).
+
+// 0	For numeric conversions, pad with leading zeros to the field width.
+
+// #	An alternative output form. For o, the first digit will be '0'. For x or X, "0x" or "0X" will 
+// be prefixed to a non-zero result. For e, E, f, F, g and G, the output will always have a decimal point; 
+// for g and G, trailing zeros will not be removed.
