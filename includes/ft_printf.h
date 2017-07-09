@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 21:35:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/08 16:08:16 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/08 20:51:45 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,18 @@ typedef struct		s_value
 	void			(*print_func)(const char*);
 	char			*mid_str;
 	char			*final_string;
+
+	int				tabside;
+	int				zerotab;
+	int				plus;
+	int				hash;
+	int				space;
+	int				percent;
+	char			type;
+	int				dot;
+	int				pres;
+	int				tab;
+
 	// Flags
 	int				left_justify;
 	int				show_sign;
@@ -54,10 +66,9 @@ typedef struct		s_value
 	t_format		*format;
 }					t_value;
 
-int					ft_printf(char *format_str, ...);
-void				handle_format(char *format_str, va_list arguments);
+int					ft_printf(char *input, ...);
+void				handle_format(char *input, va_list arguments);
 void				handle_specifier(char specifier, va_list arguments);
-void				handle_flags_space(char *format_str, t_value *result);
 
 #endif
 

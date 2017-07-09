@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/28 13:57:59 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/08 15:25:37 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/08 20:45:19 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,22 @@ int		main(void)
 	// Warning.
 	// ft_printf("%d\n", ft_printf("%%   %", "test"));
 	// printf("%d\n", printf("%%   %", "test"));
+	// printf("========================================================\n");
 
 	// ft_printf("%d\n", ft_printf("%%   %", "test"));
 	// printf("%d\n", printf("%%   %", "test"));
 	
 	// ft_printf("%d \n", ft_printf("{% c}", 0));
-	// printf("%d \n", printf("{% c}", 0));
+	// printf("%d \n", printf("% c", 0));
+	// printf("========================================================\n");
 
 	// ft_printf("|retour : %d|\n", ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d", 256));
 	// printf("|retour : %d|\n", printf("@main_ftprintf: %###-#0000 33...12..#0+0d", 256));
 
-	// // END Warning.
-	// ft_printf("Barong%s devient %s%d\n", "21", "Barong", 42);
-	// printf("Barong%s devient %s%d\n", "21", "Barong", 42);
+	// END Warning.
+	ft_printf("Barong|%s| devient |%s|%d|\n", "21", "Barong", 42);
+	printf("Barong|%s| devient |%s|%d|\n", "21", "Barong", 42);
+	printf("========================================================\n");
 
 	// ft_printf(" | retour %d\n", ft_printf("Barong%s devient %ls%d", "21", L"Barong¥", 42));
 	// printf(" | retour %d\n", printf("Barong%s devient %ls%d", "21", L"Barong¥", 42));
@@ -67,13 +70,6 @@ int		main(void)
 	ft_printf("ft_printf: |%s|\n", "motherfucker");
 	printf("printf: |%s|\n", "motherfucker");
 	printf("========================================================\n");
-
-	
-
-	// ft_printf("ft_printf: %s\n", "LOL");
-	// printf("printf: %s\n","LOL");
-
-	// int a = 156;
 
 	ft_printf("ft_printf : |%d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
 	printf("printf : |%d|\n", printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));

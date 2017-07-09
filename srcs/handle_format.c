@@ -6,7 +6,7 @@
 /*   By: phoreau <phoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:56:32 by phoreau           #+#    #+#             */
-/*   Updated: 2017/07/08 16:08:13 by phoreau          ###   ########.fr       */
+/*   Updated: 2017/07/08 20:51:37 by phoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,28 @@ void	handle_specifier(char specifier, va_list arguments)
 
 	if (specifier == 'c')
 	{
+		// ft_putstr(va_arg(arguments, int));
 		d = va_arg(arguments, int);
 		ft_putchar(d);
 	}
-	if (specifier == 's') 
+	if (specifier == 's')
 		ft_putstr(va_arg(arguments, char *));
 	if (specifier == 'd' || specifier == 'i') 
 		ft_putnbr(va_arg(arguments, int));
 }
 
-void	handle_flags_space(char *format_str, t_value *flags)
-{
-	int		index;
+// void	handle_flags_space(char *input)
+// {
+// 	va_list		arguments;
 
-	index = 1;
-	while (format_str[index])
-	{
-		if (format_str[index] == ' ' && format_str[index + 1] == 'd')
-		{
-			// while (CHECK_FLAG(format_str[index]))
-				ft_putchar(' ');
-				
-				flags->space_or_sign++;
-				index++;
-		}
-		index++;
-	}
-}
+// 	if (input[0] == ' ' && input[1] == 'd')
+// 	{
+// 		ft_putchar(input[0]);
+// 		handle_specifier(input[1], arguments);
+// 	}
+// 	// else
+// 	// 	handle_specifier(input[i + 1], arguments);
+// }
 
 
 // find the flags
