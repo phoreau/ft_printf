@@ -27,15 +27,12 @@ int		start_printing(int fd, char *input, va_list arguments)
 		{
 			i++;
 			handle_specifier(input[i], arguments);
-			// handle_flags_space(&(input[i + 1]));
 		}
 		else if (input[i])
 		{
 			ft_putchar(input[i]);
 			result++;
 		}
-		if (input[i] == '\0')
-			break ;
 		i++;
 	}
 	return (result);
@@ -54,6 +51,3 @@ int		ft_printf(char *input, ...)
 	va_end(arguments);
 	return (start_printing(1, input, arguments));
 }
-
-// use function pointers so the code will be better
-// %[flags][width][.precision][length]specifier

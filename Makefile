@@ -10,32 +10,31 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME=libftprintf.a
+NAME		= libftprintf.a
 
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror
-LIBFT=./libft/libft.a
-DEBUGFLAGS=-fsanitize=address -g -o ft_printf_debug
-LEAKCHECK=-g -o ft_printf_leakcheck
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+LIBFT		= ./libft/libft.a
+DEBUGFLAGS	= -fsanitize=address -g -o ft_printf_debug
+LEAKCHECK	= -g -o ft_printf_leakcheck
 
-SRCS=ft_printf.c \
-	handle_format.c \
-	main.c \
+SRCS		= ft_printf.c \
+			handle_format.c \
 
-OBJDIR = ./obj/
-SRCDIR = ./srcs/
-LIBDIR = ./libft/
-INCDIR = ./includes/
+OBJDIR 		= ./obj/
+SRCDIR 		= ./src/
+LIBDIR 		= ./libft/
+INCDIR 		= ./includes/
 
-SRC = $(addprefix $(SRCDIR),$(SRCS))
-OBJ = $(addprefix $(OBJDIR),$(SRCS:.c=.o))
+SRC 		= $(addprefix $(SRCDIR),$(SRCS))
+OBJ			= $(addprefix $(OBJDIR),$(SRCS:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	@echo "<< Compiling libftprintf... >>"
+	@echo "\033[32m<< Compiling libftprintf... >>\033[0m"
 	@ar rc $(NAME) $(OBJ) ./libft/*.o
-	@echo "<< Made libftprintf.a! >>"
+	@echo "\033[32m<< Made libftprintf.a! >>\033[0m"
 
 $(OBJ): $(SRC)
 	@$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
@@ -46,7 +45,7 @@ $(LIBFT):
 	make -C $(LIBDIR)
 
 clean:
-	@echo "<< Cleaning libftprintf >>"
+	@echo "\033[34;1m<< Cleaning libftprintf >>\033[0m"
 	@rm -rf $(OBJDIR)
 	@rm -rf ft_printf_debug
 	@rm -rf ft_printf_debug.dSYM
@@ -69,4 +68,5 @@ leakcheck : $(LIBFT)
 	@echo "<< Compiling libftprintf with valgrind options >>"
 	$(CC) $(SRC) $(LIBFT) -I$(INCDIR) $(LEAKCHECK)
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, res
+

@@ -34,17 +34,6 @@ typedef struct		s_format
 typedef struct		s_value
 {
 	int				fd;
-	int				wild_prec;
-	int				wild_width;
-	size_t			str_len;
-	int				r;
-	int				flag;
-	int				prec_case;
-	int				no_spec;
-	void			(*print_func)(const char*);
-	char			*mid_str;
-	char			*final_string;
-
 	int				tabside;
 	int				zerotab;
 	int				plus;
@@ -69,13 +58,9 @@ typedef struct		s_value
 int					ft_printf(char *input, ...);
 void				handle_format(char *input, va_list arguments);
 void				handle_specifier(char specifier, va_list arguments);
+void				handle_flags_plus(char *input);
 
 #endif
-
-// fucntions pointers 
-// specifier are index
-// when you recieve s as specifier, you use it as 
-
 
 // -	The output is left justified in its field, not right justified (the default).
 

@@ -55,24 +55,28 @@ int		main(void)
 	printf("printf: |% d|\n", 42);
 	printf("========================================================\n");
 
+	ft_printf("ft_printf: |%+d|\n", 42);
+	printf("printf: |%+d|\n", 42);
+	printf("========================================================\n");
+
+	ft_printf("ft_printf: |%+5d|\n", 42);
+	printf("printf: |%+5d|\n", 42);
+	printf("========================================================\n");
+
 	ft_printf("ft_printf: |%d|\n", 42);
 	printf("printf: |%d|\n", 42);
 	printf("========================================================\n");
 
-	ft_printf("ft_printf: |LOL|\n");
-	printf("printf: |LOL|\n");
-	printf("========================================================\n");
+	// ft_printf("ft_printf: |%c|\n", 'o');
+	// printf("printf: |%c|\n", 'o');
+	// printf("========================================================\n");
 
-	ft_printf("ft_printf: |%c|\n", 'o');
-	printf("printf: |%c|\n", 'o');
-	printf("========================================================\n");
+	// ft_printf("ft_printf: |%s|\n", "motherfucker");
+	// printf("printf: |%s|\n", "motherfucker");
+	// printf("========================================================\n");
 
-	ft_printf("ft_printf: |%s|\n", "motherfucker");
-	printf("printf: |%s|\n", "motherfucker");
-	printf("========================================================\n");
-
-	ft_printf("ft_printf : |%d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
-	printf("printf : |%d|\n", printf("{%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
+	ft_printf("|%d|\n", ft_printf("ft_printf: {%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
+	printf("|%d|\n", printf("printf: {%ls}", L"\xF0\x9D\x84\x9E\xEF\xA3\xBF"));
 	printf("========================================================\n");
 
 	// ft_printf("|retour : %d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E"));
