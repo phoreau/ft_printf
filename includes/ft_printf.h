@@ -33,7 +33,6 @@ typedef struct		s_format
 
 typedef struct		s_value
 {
-	int				fd;
 	int				tabside;
 	int				zerotab;
 	int				plus;
@@ -44,32 +43,16 @@ typedef struct		s_value
 	int				dot;
 	int				pres;
 	int				tab;
-
-	// Flags
 	int				left_justify;
 	int				show_sign;
 	int				space_or_sign;
 	int				pad_zeros;
 	int				hashtag;
-	// Struct
 	t_format		*format;
 }					t_value;
 
 int					ft_printf(char *input, ...);
-void				handle_format(char *input, va_list arguments);
 void				handle_specifier(char specifier, va_list arguments);
-void				handle_flags_plus(char *input);
+void				handle_flags_plus(t_format *input);
 
 #endif
-
-// -	The output is left justified in its field, not right justified (the default).
-
-// +	Signed numbers will always be printed with a leading sign (+ or -).
-
-// space	Positive numbers are preceded by a space (negative numbers by a - sign).
-
-// 0	For numeric conversions, pad with leading zeros to the field width.
-
-// #	An alternative output form. For o, the first digit will be '0'. For x or X, "0x" or "0X" will 
-// be prefixed to a non-zero result. For e, E, f, F, g and G, the output will always have a decimal point; 
-// for g and G, trailing zeros will not be removed.

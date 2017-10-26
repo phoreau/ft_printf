@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int		start_printing(int fd, char *input, va_list arguments)
+int		parse_format(t_format *input, va_list arguments, t_value *ret)
 {
 	int			result;
 	int			i;
@@ -20,7 +20,6 @@ int		start_printing(int fd, char *input, va_list arguments)
 
 	result = 0;
 	i = 0;
-	values.fd = fd;
 	while (input[i])
 	{
 		if (input[i] == '%')

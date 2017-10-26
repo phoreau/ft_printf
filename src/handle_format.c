@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void	handle_flags_space(char *input)
+void	handle_flags_space(t_format *input)
 {
 	va_list		arguments;
 	int			i;
@@ -25,7 +25,7 @@ void	handle_flags_space(char *input)
 	}
 }
 
-void	handle_flags_plus(char *input)
+void	handle_flags_plus(t_format *input)
 {
 	va_list		arguments;
 	int			i;
@@ -39,6 +39,7 @@ void	handle_flags_plus(char *input)
 
 void	handle_specifier(char specifier, va_list arguments)
 {
+	
 	if (specifier == 'c')
 		ft_putchar(va_arg(arguments, int));
 	if (specifier == 's')
