@@ -48,6 +48,8 @@ typedef struct		s_value
 	int				space_or_sign;
 	int				pad_zeros;
 	int				hashtag;
+	int				ret;
+	char			**input;
 	t_format		*format;
 }					t_value;
 

@@ -12,17 +12,16 @@
 
 #include "../includes/ft_printf.h"
 
-int		parse_format(t_format *input, va_list arguments, t_value *ret)
+int		parse_format(char *input, va_list arguments, t_value *values)
 {
 	int			result;
 	int			i;
-	t_value		values;
 
 	result = 0;
 	i = 0;
 	while (input[i])
 	{
-		if (input[i] == '%')
+		if (input[i] == '%' && values->input[i] != NULL)
 		{
 			i++;
 			handle_specifier(input[i], arguments);
@@ -40,13 +39,17 @@ int		parse_format(t_format *input, va_list arguments, t_value *ret)
 int		ft_printf(char *input, ...)
 {
 	va_list		arguments;
+	t_value		*values;
 
 	if (!input)
 	{
 		ft_putendl_fd("ft_printf: format string must be valid", 2);
 		exit(1);
 	}
+	values = (t_value*)malloc(sizeof(t_value));
+	//initialize return struct
 	va_start(arguments, input);
+	parse_format(input, arguments, values);
 	va_end(arguments);
-	return (start_printing(1, input, arguments));
+	return (values->ret);
 }
