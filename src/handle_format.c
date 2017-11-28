@@ -12,30 +12,30 @@
 
 #include "../includes/ft_printf.h"
 
-void	handle_flags_space(t_format *format)
-{
-	va_list		arguments;
-	int			i;
+// void	handle_flags_space(t_format *format)
+// {
+// 	va_list		arguments;
+// 	int			i;
 
-	i = 0;
-	if (format->input[i] == ' ' && format->input[i++] == 'd')
-	{
-		ft_putchar(' ');
-		handle_specifier(input[i], arguments);
-	}
-}
+// 	i = 0;
+// 	if (format->input[i] == ' ' && format->input[i++] == 'd')
+// 	{
+// 		ft_putchar(' ');
+// 		handle_specifier(input[i], arguments);
+// 	}
+// }
 
-void	handle_flags_plus(t_format *input)
-{
-	va_list		arguments;
-	int			i;
+// void	handle_flags_plus(t_format *input)
+// {
+// 	va_list		arguments;
+// 	int			i;
 
-	i = 0;
-	if (input[i] == '+' && input[i++] == 'd')
-	{
-		handle_specifier(input[i], arguments);
-	}
-}
+// 	i = 0;
+// 	if (input[i] == '+' && input[i++] == 'd')
+// 	{
+// 		handle_specifier(input[i], arguments);
+// 	}
+// }
 
 void	handle_specifier(char specifier, va_list arguments)
 {
