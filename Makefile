@@ -60,6 +60,9 @@ fclean: clean
 
 re: fclean all
 
+test: all
+	$(CC) -o test src/main.c $(INCDIR) -L ./ -lftprintf
+
 debug : $(LIBFT)
 	@echo "<< Compiling libftprintf with debugging options >>"
 	$(CC) $(SRC) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS)

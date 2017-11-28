@@ -22,39 +22,40 @@
 # define INVALID	1
 # define VALID		0
 
-typedef struct		s_format
+typedef	enum		e_specifier
 {
-	char			*flags;
-	size_t			width;
-	size_t			precision;
-	char			*length;
-	char			specifier;
-}					t_format;
+	STRING, POINTER, DECIMAL, OCTAL, UDECIMAL, LOWERHEX, UPPERHEX, CHARACTER,
+	WIDECHAR, WIDESTR, ERROR
+}					t_specifier;
+
+typedef enum		e_length
+{
+	NONE, HH, H, L, LL, J, Z
+}					t_length;
 
 typedef struct		s_value
 {
-	int				tabside;
-	int				zerotab;
-	int				plus;
-	int				hash;
-	int				space;
-	int				percent;
-	char			type;
-	int				dot;
-	int				pres;
-	int				tab;
+	// flags
 	int				left_justify;
 	int				show_sign;
 	int				space_or_sign;
 	int				pad_zeros;
 	int				hashtag;
+
+	int				percent;
+	char			type;
+	int				dot;
+	int				pres;
+	int				tab;
+
 	int				ret;
-	char			**input;
-	t_format		*format;
+	t_specifier		specifier;
+	t_length		length;
 }					t_value;
 
 int					ft_printf(char *input, ...);
+int					parse_format(char *input);
 void				handle_specifier(char specifier, va_list arguments);
-void				handle_flags_plus(t_format *input);
+int					handle_string(t_value *values, va_list **arguments);
 
 #endif
