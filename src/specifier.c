@@ -14,6 +14,8 @@
 
 t_specifier		get_specifier(char specifier)
 {
+	va_list		arguments;
+
 	if (specifier == 'c' || specifier == 'C')
 		ft_putchar(va_arg(arguments, int));
 	if (specifier == 's' || specifier == 'S')
@@ -32,9 +34,10 @@ t_specifier		get_specifier(char specifier)
 	// 	return (POINTER);
 	// if (specifier == 'n')
 	// 	return (CHARS_WRITTEN);
+	return (ERROR);
 }
 
-void			handle_specifier(t_value *values, va_list **arguments)
+int			handle_specifier(t_value *values, va_list **arguments)
 {
 	int		ret;
 

@@ -17,9 +17,11 @@ int		handle_string(t_value *values, va_list **arguments)
 	char	*str;
 	int		result;
 
-	str = ft_strdup(va_arg(**args, char*));
+	str = ft_strdup(va_arg(**arguments, char*));
 	if (!str)
 		str = ft_strdup("(null)");
+	if (values->dot)
+		;
 	// if (p->dot)
 	// 	process_precision(&str, p);
 	// if (p->width && p->zero)

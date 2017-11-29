@@ -55,7 +55,8 @@ typedef struct		s_value
 
 int					ft_printf(char *input, ...);
 int					parse_format(char *input);
-void				handle_specifier(char specifier, va_list arguments);
+// void				handle_specifier(char specifier, va_list arguments);
+int					handle_specifier(t_value *values, va_list **arguments);
 int					handle_string(t_value *values, va_list **arguments);
 
 #endif
