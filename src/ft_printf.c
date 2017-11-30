@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int		parse_format(char *input)
+int		parse_format(char *input, va_list *arguments)
 {
 	t_value		values;
 	int			result;
@@ -27,6 +27,7 @@ int		parse_format(char *input)
 		if (input[i] == '%')
 		{
 			ft_bzero(&values, sizeof(t_value));
+			result += handle_specifier(&values, &arguments);
 		}
 		else
 		{
@@ -49,7 +50,7 @@ int		ft_printf(char *input, ...)
 		exit(1);
 	}
 	va_start(arguments, input);
-	result = parse_format(input);
+	result = parse_format(input, &arguments);
 	va_end(arguments);
 	return (result);
 }

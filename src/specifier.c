@@ -14,14 +14,12 @@
 
 t_specifier		get_specifier(char specifier)
 {
-	va_list		arguments;
-
 	if (specifier == 'c' || specifier == 'C')
-		ft_putchar(va_arg(arguments, int));
+		return (CHARACTER);
 	if (specifier == 's' || specifier == 'S')
 		return (STRING);
 	if (specifier == 'd' || specifier == 'i' || specifier == 'D')
-		ft_putnbr(va_arg(arguments, int));
+		return (DECIMAL);
 	// if (specifier == 'u' || specifier == 'U')
 	// 	return (U_DECIMAL);
 	// if (specifier == 'o' || specifier == 'O')
@@ -39,25 +37,10 @@ t_specifier		get_specifier(char specifier)
 
 int			handle_specifier(t_value *values, va_list **arguments)
 {
-	int		ret;
+	int		result;
 
-	ret = 0;
+	result = 0;
 	if (values->specifier == STRING)
-		ret = handle_string(values, arguments);
-	// else if (values->specifier == POINTER)
-	// 	ret = process_pointer(p, arguments);
-	// else if (values->specifier == DECIMAL)
-	// 	ret = ft_putnbr(va_arg(arguments, int));
-		//ret = process_int(p, arguments);
-	// else if (values->specifier == OCTAL)
-	// 	ret = process_octal(p, arguments);
-	// else if (values->specifier == LOWERHEX || values->specifier == UPPERHEX)
-	// 	ret = process_hex(p, arguments);
-	// else if (values->specifier == UNSIGNEDECI)
-	// 	ret = process_unsigned(p, arguments);
-	// else if (values->specifier == CHARACTER || values->specifier == WIDECHAR)
-	// 	ret = process_character(p, arguments);
-	// else
-	// 	ret = process_error(p);
-	return (ret);
+		result = handle_string(values, arguments);
+	return (result);
 }
