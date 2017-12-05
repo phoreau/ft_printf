@@ -54,7 +54,7 @@ clean:
 	@make -C $(LIBDIR) clean
 
 fclean: clean
-	@echo "<< Fclean libftprintf >>"
+	@echo "\033[34;1m<< Fclean libftprintf >>\033[0m"
 	@rm -rf $(NAME) *.o
 	@make -C $(LIBDIR) fclean
 
