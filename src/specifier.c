@@ -32,10 +32,12 @@ t_specifier		get_specifier(char specifier)
 	// 	return (POINTER);
 	// if (specifier == 'n')
 	// 	return (CHARS_WRITTEN);
+	else if (specifier != '\n')
+		return (specifier);
 	return (ERROR);
 }
 
-int			handle_specifier(t_value *values, va_list **arguments)
+int			handle_specifier(t_value *values, va_list *arguments)
 {
 	int		result;
 

@@ -12,37 +12,10 @@
 
 #include "../includes/ft_printf.h"
 
-int		parse_format(char *input, va_list *arguments)
-{
-	t_value		values;
-	int			result;
-	int			characters;
-	int			i;
-
-	result = 0;
-	characters = 0;
-	i = 0;
-	while (input[i] != '\0')
-	{
-		if (input[i] == '%')
-		{
-			ft_bzero(&values, sizeof(t_value));
-			result += handle_specifier(&values, &arguments);
-		}
-		else
-		{
-			ft_putchar(input[i]);
-			characters++;
-		}
-		i++;
-	}
-	return (result + characters);
-}
-
-int		ft_printf(char *input, ...)
+int		ft_printf(const char *input, ...)
 {
 	va_list		arguments;
-	int			result;
+	int			chars_printed;
 
 	if (!input)
 	{
@@ -50,8 +23,7 @@ int		ft_printf(char *input, ...)
 		exit(1);
 	}
 	va_start(arguments, input);
-	result = parse_format(input, &arguments);
+	chars_printed = parse_format(input, arguments);
 	va_end(arguments);
-	return (result);
+	return (chars_printed);
 }
-
