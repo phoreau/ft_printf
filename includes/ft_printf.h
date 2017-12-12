@@ -50,8 +50,8 @@ typedef enum		e_length
 
 typedef	enum		e_specifier
 {
-	STRING, POINTER, DECIMAL, OCTAL, UDECIMAL, LOWERHEX, UPPERHEX, CHARACTER,
-	WIDECHAR, WIDESTR, ERROR
+	STRING, POINTER, DECIMAL, OCTAL, U_DECIMAL, LOWER_HEX, UPPER_HEX, CHARACTER,
+	WIDECHAR, WIDESTR, ERROR, CHARS_WRITTEN, INVALID_SPECIFIER
 }					t_specifier;
 
 typedef struct		s_value
@@ -66,8 +66,9 @@ typedef struct		s_value
 }					t_value;
 
 int					ft_printf(const char *input, ...);
-int					parse_format(const char *input, va_list arguments);
-int					handle_specifier(t_value *values, va_list *arguments);
-int					handle_string(t_value *values, va_list *arguments);
+int					parse_format(const char *format, va_list arguments);
+void				save_chars_written(va_list arguments, t_format *format);
+int					handle_flags(t_value *conversion, t_format *format);
+int					handle_specifier(t_value *conversion, t_format *format);
 
 #endif
